@@ -359,7 +359,183 @@
         .gallery-year {
             color: var(--accent-color);
             font-style: italic;
+            margin-bottom: 0.5rem;
+        }
+        
+        .gallery-price {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            color: #fff;
             margin-bottom: 1rem;
+            background-color: rgba(201, 164, 114, 0.2);
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+        }
+
+        .gallery-order-btn {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            margin-top: 0.5rem;
+            background-color: var(--accent-color);
+            color: #000;
+            border: none;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .gallery-order-btn:hover {
+            background-color: #fff;
+            color: #000;
+        }
+
+        /* Order Modal */
+        .order-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+        }
+        
+        .order-modal.active {
+            display: flex;
+        }
+        
+        .order-modal-content {
+            background-color: var(--tertiary-bg);
+            max-width: 500px;
+            width: 100%;
+            padding: 2.5rem;
+            border-radius: 4px;
+            position: relative;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+        
+        .order-modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            color: var(--text-color);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .order-modal-close:hover {
+            color: var(--accent-color);
+        }
+        
+        .order-modal-title {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .order-form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .order-form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+        }
+        
+        .order-form-input {
+            width: 100%;
+            padding: 0.8rem;
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-color);
+            font-family: 'Montserrat', sans-serif;
+            transition: var(--transition);
+        }
+        
+        .order-form-input:focus {
+            outline: none;
+            border-color: var(--accent-color);
+        }
+        
+        .order-form-select {
+            width: 100%;
+            padding: 0.8rem;
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-color);
+            font-family: 'Montserrat', sans-serif;
+            transition: var(--transition);
+        }
+        
+        .order-form-select:focus {
+            outline: none;
+            border-color: var(--accent-color);
+        }
+        
+        .order-artwork-info {
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            border-left: 2px solid var(--accent-color);
+        }
+        
+        .order-artwork-name {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .order-artwork-collection,
+        .order-artwork-year,
+        .order-artwork-price {
+            font-size: 0.9rem;
+            color: #aaa;
+            margin-bottom: 0.3rem;
+        }
+        
+        .order-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .order-whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.8rem 1.5rem;
+            background-color: #25D366;
+            color: #fff;
+            border: none;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: var(--transition);
+            flex: 1;
+            justify-content: center;
+            text-decoration: none;
+        }
+        
+        .order-whatsapp-btn i {
+            margin-right: 0.5rem;
+        }
+        
+        .order-whatsapp-btn:hover {
+            background-color: #128C7E;
+            color: #fff;
         }
 
         /* Exhibitions Section */
@@ -637,6 +813,23 @@
             .nav {
                 display: none;
             }
+            
+            .nav.active {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: rgba(15, 15, 15, 0.95);
+                padding: 1rem 0;
+                text-align: center;
+                z-index: 999;
+            }
+            
+            .nav.active .nav-link {
+                padding: 0.75rem 0;
+            }
 
             .mobile-menu-btn {
                 display: block;
@@ -721,6 +914,10 @@
                 flex-wrap: wrap;
                 gap: 1rem;
             }
+            
+            .order-actions {
+                flex-direction: column;
+            }
         }
     </style>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
@@ -787,6 +984,8 @@
                     <h3 class="gallery-title">Reflection I</h3>
                     <p class="gallery-year">From "Ntughari uche" (2021)</p>
                     <p>A meditative exploration of self-identity, spiritual reckoning, and the silence within.</p>
+                    <p class="gallery-price">$1,250 USD</p>
+                    <button class="gallery-order-btn" data-artwork="Reflection I" data-collection="Ntughari uche" data-year="2021" data-price="1,250">Order Artwork</button>
                 </div>
             </div>
             <!-- Gallery Item 2 -->
@@ -796,6 +995,8 @@
                     <h3 class="gallery-title">Hope Emerging</h3>
                     <p class="gallery-year">From "Nchekwube" (2022)</p>
                     <p>A visual prayer for restoration and the quiet resilience of the human spirit in dark times.</p>
+                    <p class="gallery-price">$1,450 USD</p>
+                    <button class="gallery-order-btn" data-artwork="Hope Emerging" data-collection="Nchekwube" data-year="2022" data-price="1,450">Order Artwork</button>
                 </div>
             </div>
             <!-- Gallery Item 3 -->
@@ -805,6 +1006,8 @@
                     <h3 class="gallery-title">Unfulfilled Potential</h3>
                     <p class="gallery-year">From "Atumatu Madu Lara Niyi" (2023)</p>
                     <p>A powerful commentary on generational struggles and the emotional toll of deferred dreams.</p>
+                    <p class="gallery-price">$1,750 USD</p>
+                    <button class="gallery-order-btn" data-artwork="Unfulfilled Potential" data-collection="Atumatu Madu Lara Niyi" data-year="2023" data-price="1,750">Order Artwork</button>
                 </div>
             </div>
             <!-- Gallery Item 4 -->
@@ -814,55 +1017,140 @@
                     <h3 class="gallery-title">Ancestral Whispers</h3>
                     <p class="gallery-year">From "Yesterday's Tomorrow" (2020)</p>
                     <p>Exploring the connection between past and future through symbolic portraiture.</p>
+                    <p class="gallery-price">$8,200 USD</p>
+                    <button class="gallery-order-btn" data-artwork="Ancestral Whispers" data-collection="Yesterday's Tomorrow" data-year="2020" data-price="1,200">Order Artwork</button>
                 </div>
             </div>
             <!-- Gallery Item 5 -->
             <div class="gallery-item">
                 <img src="images/Time.jpeg" alt="Time is a Loop" class="gallery-image">
                 <div class="gallery-overlay">
-                    <h3 class="gallery-title">Cyclical Memory</h3>
+                    <h3 class="gallery-title">Reach</h3>
                     <p class="gallery-year">From "Time is a Loop" (2021)</p>
-                    <p>Visual meditation on the repetitive nature of history and memory.</p>
+                    <p>Though the beauty may seem distant, extend yourself with hope and intention towards the possibilities above.</p>
+                    <p class="gallery-price">$10,500 USD</p>
+                    <button class="gallery-order-btn" data-artwork="Reach" data-collection="Time is a Loop" data-year="2021" data-price="1,350">Order Artwork</button>
                 </div>
             </div>
             <!-- Gallery Item 6 -->
             <div class="gallery-item">
                 <img src="images/memory.jpeg" alt="Faded Light" class="gallery-image">
                 <div class="gallery-overlay">
-                    <h3 class="gallery-title">Liminal Spaces</h3>
+                    <h3 class="gallery-title">Solitude</h3>
                     <p class="gallery-year">From "Faded Light" (2022)</p>
-                    <p>Exploring the boundaries between presence and absence through light and shadow.</p>
+                    <p>Find peace and inner richness in the quiet embrace of your own being.</p>
+                    <p class="gallery-price">$8,000 USD</p>
+                    <button class="gallery-order-btn" data-artwork="Solitude" data-collection="Faded Light" data-year="2022" data-price="1,450">Order Artwork</button>
                 </div>
             </div>
             <!-- Gallery Item 7 -->
             <div class="gallery-item">
                 <img src="images/faded.jpeg" alt="Echo Chamber" class="gallery-image">
                 <div class="gallery-overlay">
-                    <h3 class="gallery-title">Cultural Resonance</h3>
+                    <h3 class="gallery-title">Free</h3>
                     <p class="gallery-year">From "Echo Chamber" (2022)</p>
-                    <p>Investigating how cultural memories echo through generations.</p>
+                    <p>Defy gravity, embrace the boundless possibilities that float freely before you.</p>
+                    <p class="gallery-price">$9,500 USD</p>
+                    <button class="gallery-order-btn" data-artwork="Free" data-collection="Echo Chamber" data-year="2022" data-price="1,550">Order Artwork</button>
                 </div>
             </div>
             <!-- Gallery Item 8 -->
             <div class="gallery-item">
                 <img src="images/Modern.jpeg" alt="Urban Myths" class="gallery-image">
                 <div class="gallery-overlay">
-                    <h3 class="gallery-title">Modern Folklore</h3>
+                    <h3 class="gallery-title">Fuse</h3>
                     <p class="gallery-year">From "Urban Myths" (2023)</p>
-                    <p>Reinterpreting traditional Igbo stories in contemporary urban settings.</p>
+                    <p>Even seemingly disparate elements can find a point of connection and shared perspective against a vast and hopeful sky.</p>
+                    <p class="gallery-price">$7,500 USD</p>
+                    <button class="gallery-order-btn" data-artwork="Fuse" data-collection="Urban Myths" data-year="2023" data-price="1,850">Order Artwork</button>
                 </div>
             </div>
             <!-- Gallery Item 9 -->
             <div class="gallery-item">
                 <img src="images/Crossings.jpeg" alt="Synesthesia" class="gallery-image">
                 <div class="gallery-overlay">
-                    <h3 class="gallery-title">Cultural Crossings</h3>
+                    <h3 class="gallery-title">Level Up</h3>
                     <p class="gallery-year">From "Synesthesia" (2023)</p>
-                    <p>Visualizing the sensory experience of cultural identity in transition.</p>
+                    <p>Take the leap, rise above the familiar path, and elevate your journey.</p>
+                    <p class="gallery-price">$10,000 USD</p>
+                    <button class="gallery-order-btn" data-artwork="Level Up" data-collection="Synesthesia" data-year="2023" data-price="1,950">Order Artwork</button>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Order Modal -->
+    <div class="order-modal" id="orderModal">
+        <div class="order-modal-content">
+            <button class="order-modal-close" id="closeOrderModal">
+                <i class="fas fa-times"></i>
+            </button>
+            <h2 class="order-modal-title">Order Artwork</h2>
+            
+            <div class="order-artwork-info">
+                <p class="order-artwork-name" id="orderArtworkName"></p>
+                <p class="order-artwork-collection" id="orderArtworkCollection"></p>
+                <p class="order-artwork-year" id="orderArtworkYear"></p>
+                <p class="order-artwork-price" id="orderArtworkPrice"></p>
+            </div>
+            
+            <form id="orderForm">
+                <div class="order-form-group">
+                    <label class="order-form-label" for="orderName">Your Name</label>
+                    <input type="text" id="orderName" class="order-form-input" required>
+                </div>
+                
+                <div class="order-form-group">
+                    <label class="order-form-label" for="orderEmail">Your Email</label>
+                    <input type="email" id="orderEmail" class="order-form-input" required>
+                </div>
+                
+                <div class="order-form-group">
+                    <label class="order-form-label" for="orderPhone">Your Phone (with country code)</label>
+                    <input type="tel" id="orderPhone" class="order-form-input" placeholder="+234 800 123 4567" required>
+                </div>
+                
+                <div class="order-form-group">
+                    <label class="order-form-label" for="orderAddress">Shipping Address</label>
+                    <textarea id="orderAddress" class="order-form-input" rows="3" required></textarea>
+                </div>
+                
+                <div class="order-form-group">
+                    <label class="order-form-label" for="orderPrintSize">Print Size</label>
+                    <select id="orderPrintSize" class="order-form-select" required>
+                        <option value="">Select Print Size</option>
+                        <option value="16x20">16" × 20" (40.6cm × 50.8cm)</option>
+                        <option value="20x24">20" × 24" (50.8cm × 61cm)</option>
+                        <option value="24x36">24" × 36" (61cm × 91.4cm)</option>
+                        <option value="30x40">30" × 40" (76.2cm × 101.6cm)</option>
+                    </select>
+                </div>
+                
+                <div class="order-form-group">
+                    <label class="order-form-label" for="orderFrame">Frame Option</label>
+                    <select id="orderFrame" class="order-form-select" required>
+                        <option value="">Select Frame Option</option>
+                        <option value="no-frame">No Frame</option>
+                        <option value="black-frame">Black Wood Frame</option>
+                        <option value="white-frame">White Wood Frame</option>
+                        <option value="natural-frame">Natural Wood Frame</option>
+                        <option value="metal-frame">Metal Frame</option>
+                    </select>
+                </div>
+                
+                <div class="order-form-group">
+                    <label class="order-form-label" for="orderNotes">Special Instructions (Optional)</label>
+                    <textarea id="orderNotes" class="order-form-input" rows="3"></textarea>
+                </div>
+                
+                <div class="order-actions">
+                    <a href="#" id="shareWhatsapp" class="order-whatsapp-btn" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Order via WhatsApp
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
 
     <!-- Exhibitions Section -->
     <section id="exhibitions" class="section exhibitions">
@@ -1003,7 +1291,7 @@
                         <i class="fas fa-envelope"></i>
                     </div>
                     <div>
-                        <p>chidozie.maduka@example.com</p>
+                        <p>contact@chidoziemadukaart.com</p>
                     </div>
                 </div>
                 <div class="contact-item">
@@ -1011,7 +1299,7 @@
                         <i class="fas fa-phone"></i>
                     </div>
                     <div>
-                        <p>+234 800 123 4567</p>
+                        <p>+2348181662198</p>
                     </div>
                 </div>
                 <div class="contact-item">
@@ -1109,6 +1397,114 @@
             });
         });
 
+        // Order Modal functionality
+        const orderButtons = document.querySelectorAll('.gallery-order-btn');
+        const orderModal = document.getElementById('orderModal');
+        const closeOrderModal = document.getElementById('closeOrderModal');
+        const orderForm = document.getElementById('orderForm');
+        const shareWhatsappBtn = document.getElementById('shareWhatsapp');
+        
+        // Order details elements
+        const orderArtworkName = document.getElementById('orderArtworkName');
+        const orderArtworkCollection = document.getElementById('orderArtworkCollection');
+        const orderArtworkYear = document.getElementById('orderArtworkYear');
+        const orderArtworkPrice = document.getElementById('orderArtworkPrice');
+        
+        // Open modal with artwork details
+        orderButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const artwork = this.getAttribute('data-artwork');
+                const collection = this.getAttribute('data-collection');
+                const year = this.getAttribute('data-year');
+                const price = this.getAttribute('data-price');
+                
+                // Set artwork details in modal
+                orderArtworkName.textContent = `Artwork: ${artwork}`;
+                orderArtworkCollection.textContent = `Collection: ${collection}`;
+                orderArtworkYear.textContent = `Year: ${year}`;
+                orderArtworkPrice.textContent = `Price: ${price} USD`;
+                
+                // Store data for WhatsApp message
+                orderForm.dataset.artwork = artwork;
+                orderForm.dataset.collection = collection;
+                orderForm.dataset.year = year;
+                orderForm.dataset.price = price;
+                
+                // Show modal
+                orderModal.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Prevent scrolling
+            });
+        });
+        
+        // Close modal
+        closeOrderModal.addEventListener('click', function() {
+            orderModal.classList.remove('active');
+            document.body.style.overflow = ''; // Restore scrolling
+        });
+        
+        // Close modal if clicking outside
+        orderModal.addEventListener('click', function(e) {
+            if (e.target === orderModal) {
+                orderModal.classList.remove('active');
+                document.body.style.overflow = ''; // Restore scrolling
+            }
+        });
+        
+        // Generate WhatsApp message with order details
+        shareWhatsappBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('orderName').value;
+            const email = document.getElementById('orderEmail').value;
+            const phone = document.getElementById('orderPhone').value;
+            const address = document.getElementById('orderAddress').value;
+            const printSize = document.getElementById('orderPrintSize').value;
+            const frame = document.getElementById('orderFrame').value;
+            const notes = document.getElementById('orderNotes').value;
+            
+            // Validate form
+            if (!name || !email || !phone || !address || !printSize || !frame) {
+                alert('Please fill in all required fields');
+                return;
+            }
+            
+            // Get artwork details from form dataset
+            const artwork = orderForm.dataset.artwork;
+            const collection = orderForm.dataset.collection;
+            const year = orderForm.dataset.year;
+            const price = orderForm.dataset.price;
+            
+            // Create WhatsApp message
+            let message = `*New Artwork Order*\n\n`;
+            message += `*Artwork Details:*\n`;
+            message += `- Name: ${artwork}\n`;
+            message += `- Collection: ${collection}\n`;
+            message += `- Year: ${year}\n`;
+            message += `- Price: ${price} USD\n\n`;
+            
+            message += `*Order Specifications:*\n`;
+            message += `- Print Size: ${printSize}\n`;
+            message += `- Frame: ${frame}\n\n`;
+            
+            message += `*Customer Information:*\n`;
+            message += `- Name: ${name}\n`;
+            message += `- Email: ${email}\n`;
+            message += `- Phone: ${phone}\n`;
+            message += `- Shipping Address: ${address}\n`;
+            
+            if (notes) {
+                message += `\n*Special Instructions:*\n${notes}\n`;
+            }
+            
+            // Format for WhatsApp URL
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappNumber = "+2348100853150"; // Replace with actual WhatsApp number
+            const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+            
+            // Open WhatsApp in new tab
+            window.open(whatsappUrl, '_blank');
+        });
 
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
