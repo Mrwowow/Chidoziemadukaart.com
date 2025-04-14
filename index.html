@@ -309,14 +309,27 @@
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
+            gap: 2rem;
         }
 
         .gallery-item {
             position: relative;
             overflow: hidden;
+            background-color: var(--tertiary-bg);
+            border-radius: 4px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .gallery-image-container {
+            position: relative;
+            overflow: hidden;
             aspect-ratio: 1;
-            cursor: pointer;
         }
 
         .gallery-image {
@@ -351,8 +364,13 @@
             transform: scale(1.1);
         }
 
+        .gallery-info {
+            padding: 1.5rem;
+            text-align: center;
+        }
+
         .gallery-title {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             margin-bottom: 0.5rem;
         }
 
@@ -360,16 +378,18 @@
             color: var(--accent-color);
             font-style: italic;
             margin-bottom: 0.5rem;
+            font-size: 0.9rem;
         }
         
         .gallery-price {
             font-family: 'Montserrat', sans-serif;
             font-weight: 500;
             color: #fff;
-            margin-bottom: 1rem;
+            margin: 0.8rem 0;
             background-color: rgba(201, 164, 114, 0.2);
             padding: 0.3rem 0.8rem;
             border-radius: 4px;
+            display: inline-block;
         }
 
         .gallery-order-btn {
@@ -385,6 +405,7 @@
             text-transform: uppercase;
             cursor: pointer;
             transition: var(--transition);
+            width: 100%;
         }
 
         .gallery-order-btn:hover {
@@ -979,101 +1000,137 @@
         <div class="gallery-grid">
             <!-- Gallery Item 1 -->
             <div class="gallery-item">
-                <img src="images/reflection1.jpg" alt="Ntughari uche" class="gallery-image">
-                <div class="gallery-overlay">
+                <div class="gallery-image-container">
+                    <img src="images/reflection1.jpg" alt="Ntughari uche" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <p>A meditative exploration of self-identity, spiritual reckoning, and the silence within.</p>
+                    </div>
+                </div>
+                <div class="gallery-info">
                     <h3 class="gallery-title">Reflection I</h3>
                     <p class="gallery-year">From "Ntughari uche" (2021)</p>
-                    <p>A meditative exploration of self-identity, spiritual reckoning, and the silence within.</p>
                     <p class="gallery-price">$1,250 USD</p>
                     <button class="gallery-order-btn" data-artwork="Reflection I" data-collection="Ntughari uche" data-year="2021" data-price="1,250">Order Artwork</button>
                 </div>
             </div>
             <!-- Gallery Item 2 -->
             <div class="gallery-item">
-                <img src="images/Nchekwube.jpg" alt="Nchekwube" class="gallery-image">
-                <div class="gallery-overlay">
+                <div class="gallery-image-container">
+                    <img src="images/Nchekwube.jpg" alt="Nchekwube" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <p>A visual prayer for restoration and the quiet resilience of the human spirit in dark times.</p>
+                    </div>
+                </div>
+                <div class="gallery-info">
                     <h3 class="gallery-title">Hope Emerging</h3>
                     <p class="gallery-year">From "Nchekwube" (2022)</p>
-                    <p>A visual prayer for restoration and the quiet resilience of the human spirit in dark times.</p>
                     <p class="gallery-price">$1,450 USD</p>
                     <button class="gallery-order-btn" data-artwork="Hope Emerging" data-collection="Nchekwube" data-year="2022" data-price="1,450">Order Artwork</button>
                 </div>
             </div>
             <!-- Gallery Item 3 -->
             <div class="gallery-item">
-                <img src="images/Unfulfilled.jpg" alt="Atumatu Madu Lara Niyi" class="gallery-image">
-                <div class="gallery-overlay">
+                <div class="gallery-image-container">
+                    <img src="images/Unfulfilled.jpg" alt="Atumatu Madu Lara Niyi" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <p>A powerful commentary on generational struggles and the emotional toll of deferred dreams.</p>
+                    </div>
+                </div>
+                <div class="gallery-info">
                     <h3 class="gallery-title">Unfulfilled Potential</h3>
                     <p class="gallery-year">From "Atumatu Madu Lara Niyi" (2023)</p>
-                    <p>A powerful commentary on generational struggles and the emotional toll of deferred dreams.</p>
                     <p class="gallery-price">$1,750 USD</p>
                     <button class="gallery-order-btn" data-artwork="Unfulfilled Potential" data-collection="Atumatu Madu Lara Niyi" data-year="2023" data-price="1,750">Order Artwork</button>
                 </div>
             </div>
             <!-- Gallery Item 4 -->
             <div class="gallery-item">
-                <img src="images/Cultural1.jpg" alt="Yesterday's Tomorrow" class="gallery-image">
-                <div class="gallery-overlay">
+                <div class="gallery-image-container">
+                    <img src="images/Cultural1.jpg" alt="Yesterday's Tomorrow" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <p>Exploring the connection between past and future through symbolic portraiture.</p>
+                    </div>
+                </div>
+                <div class="gallery-info">
                     <h3 class="gallery-title">Ancestral Whispers</h3>
                     <p class="gallery-year">From "Yesterday's Tomorrow" (2020)</p>
-                    <p>Exploring the connection between past and future through symbolic portraiture.</p>
                     <p class="gallery-price">$8,200 USD</p>
-                    <button class="gallery-order-btn" data-artwork="Ancestral Whispers" data-collection="Yesterday's Tomorrow" data-year="2020" data-price="1,200">Order Artwork</button>
+                    <button class="gallery-order-btn" data-artwork="Ancestral Whispers" data-collection="Yesterday's Tomorrow" data-year="2020" data-price="8,200">Order Artwork</button>
                 </div>
             </div>
             <!-- Gallery Item 5 -->
             <div class="gallery-item">
-                <img src="images/Time.jpeg" alt="Time is a Loop" class="gallery-image">
-                <div class="gallery-overlay">
+                <div class="gallery-image-container">
+                    <img src="images/Time.jpeg" alt="Time is a Loop" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <p>Though the beauty may seem distant, extend yourself with hope and intention towards the possibilities above.</p>
+                    </div>
+                </div>
+                <div class="gallery-info">
                     <h3 class="gallery-title">Reach</h3>
                     <p class="gallery-year">From "Time is a Loop" (2021)</p>
-                    <p>Though the beauty may seem distant, extend yourself with hope and intention towards the possibilities above.</p>
                     <p class="gallery-price">$10,500 USD</p>
-                    <button class="gallery-order-btn" data-artwork="Reach" data-collection="Time is a Loop" data-year="2021" data-price="1,350">Order Artwork</button>
+                    <button class="gallery-order-btn" data-artwork="Reach" data-collection="Time is a Loop" data-year="2021" data-price="10,500">Order Artwork</button>
                 </div>
             </div>
             <!-- Gallery Item 6 -->
             <div class="gallery-item">
-                <img src="images/memory.jpeg" alt="Faded Light" class="gallery-image">
-                <div class="gallery-overlay">
+                <div class="gallery-image-container">
+                    <img src="images/memory.jpeg" alt="Faded Light" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <p>Find peace and inner richness in the quiet embrace of your own being.</p>
+                    </div>
+                </div>
+                <div class="gallery-info">
                     <h3 class="gallery-title">Solitude</h3>
                     <p class="gallery-year">From "Faded Light" (2022)</p>
-                    <p>Find peace and inner richness in the quiet embrace of your own being.</p>
                     <p class="gallery-price">$8,000 USD</p>
-                    <button class="gallery-order-btn" data-artwork="Solitude" data-collection="Faded Light" data-year="2022" data-price="1,450">Order Artwork</button>
+                    <button class="gallery-order-btn" data-artwork="Solitude" data-collection="Faded Light" data-year="2022" data-price="8,000">Order Artwork</button>
                 </div>
             </div>
             <!-- Gallery Item 7 -->
             <div class="gallery-item">
-                <img src="images/faded.jpeg" alt="Echo Chamber" class="gallery-image">
-                <div class="gallery-overlay">
+                <div class="gallery-image-container">
+                    <img src="images/faded.jpeg" alt="Echo Chamber" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <p>Defy gravity, embrace the boundless possibilities that float freely before you.</p>
+                    </div>
+                </div>
+                <div class="gallery-info">
                     <h3 class="gallery-title">Free</h3>
                     <p class="gallery-year">From "Echo Chamber" (2022)</p>
-                    <p>Defy gravity, embrace the boundless possibilities that float freely before you.</p>
                     <p class="gallery-price">$9,500 USD</p>
-                    <button class="gallery-order-btn" data-artwork="Free" data-collection="Echo Chamber" data-year="2022" data-price="1,550">Order Artwork</button>
+                    <button class="gallery-order-btn" data-artwork="Free" data-collection="Echo Chamber" data-year="2022" data-price="9,500">Order Artwork</button>
                 </div>
             </div>
             <!-- Gallery Item 8 -->
             <div class="gallery-item">
-                <img src="images/Modern.jpeg" alt="Urban Myths" class="gallery-image">
-                <div class="gallery-overlay">
+                <div class="gallery-image-container">
+                    <img src="images/Modern.jpeg" alt="Urban Myths" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <p>Even seemingly disparate elements can find a point of connection and shared perspective against a vast and hopeful sky.</p>
+                    </div>
+                </div>
+                <div class="gallery-info">
                     <h3 class="gallery-title">Fuse</h3>
                     <p class="gallery-year">From "Urban Myths" (2023)</p>
-                    <p>Even seemingly disparate elements can find a point of connection and shared perspective against a vast and hopeful sky.</p>
                     <p class="gallery-price">$7,500 USD</p>
-                    <button class="gallery-order-btn" data-artwork="Fuse" data-collection="Urban Myths" data-year="2023" data-price="1,850">Order Artwork</button>
+                    <button class="gallery-order-btn" data-artwork="Fuse" data-collection="Urban Myths" data-year="2023" data-price="7,500">Order Artwork</button>
                 </div>
             </div>
             <!-- Gallery Item 9 -->
             <div class="gallery-item">
-                <img src="images/Crossings.jpeg" alt="Synesthesia" class="gallery-image">
-                <div class="gallery-overlay">
+                <div class="gallery-image-container">
+                    <img src="images/Crossings.jpeg" alt="Synesthesia" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <p>Take the leap, rise above the familiar path, and elevate your journey.</p>
+                    </div>
+                </div>
+                <div class="gallery-info">
                     <h3 class="gallery-title">Level Up</h3>
                     <p class="gallery-year">From "Synesthesia" (2023)</p>
-                    <p>Take the leap, rise above the familiar path, and elevate your journey.</p>
                     <p class="gallery-price">$10,000 USD</p>
-                    <button class="gallery-order-btn" data-artwork="Level Up" data-collection="Synesthesia" data-year="2023" data-price="1,950">Order Artwork</button>
+                    <button class="gallery-order-btn" data-artwork="Level Up" data-collection="Synesthesia" data-year="2023" data-price="10,000">Order Artwork</button>
                 </div>
             </div>
         </div>
@@ -1422,7 +1479,7 @@
                 orderArtworkName.textContent = `Artwork: ${artwork}`;
                 orderArtworkCollection.textContent = `Collection: ${collection}`;
                 orderArtworkYear.textContent = `Year: ${year}`;
-                orderArtworkPrice.textContent = `Price: ${price} USD`;
+                orderArtworkPrice.textContent = `Price: $${price} USD`;
                 
                 // Store data for WhatsApp message
                 orderForm.dataset.artwork = artwork;
@@ -1481,7 +1538,7 @@
             message += `- Name: ${artwork}\n`;
             message += `- Collection: ${collection}\n`;
             message += `- Year: ${year}\n`;
-            message += `- Price: ${price} USD\n\n`;
+            message += `- Price: $${price} USD\n\n`;
             
             message += `*Order Specifications:*\n`;
             message += `- Print Size: ${printSize}\n`;
@@ -1499,7 +1556,7 @@
             
             // Format for WhatsApp URL
             const encodedMessage = encodeURIComponent(message);
-            const whatsappNumber = "+2348181662198"; // Replace with actual WhatsApp number
+            const whatsappNumber = "+2348181662198"; // Chidozie's WhatsApp number
             const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
             
             // Open WhatsApp in new tab
